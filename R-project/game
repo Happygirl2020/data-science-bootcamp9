@@ -1,0 +1,210 @@
+## Greeting
+
+```
+name <- readline ("What is your name : ")
+cat(paste("Hi!", name, "Welcome to Rock-Paper-Scissor game","\\n","\\n"))
+
+```
+
+## House rules
+
+```
+cat("RULES TO PLAY:", "\\n")
+cat("press R for ✊" , "press P for 🖐" , "press S for ✌️", sep = "\\n","\\n")
+
+cat(toupper("How to win this game!"))
+
+data.frame(
+    Player1 = c("P 🖐", "S ✌️", "R ✊"),
+    Player2 = c("R ✊", "P 🖐", "S ✌️"),
+    Scores = c(1, 1, 1)
+)
+
+```
+
+}
+game()
+
+## Start the game
+
+```
+ flush.console()
+
+```
+
+start <- readline("Are you ready? [y/n]: ")
+ifelse (start == "y", "Ready! 3 2 1", "See you later 👋 Bye Bye")
+
+## Round
+
+count <- 0
+player_score <- 0
+bot_score <- 0
+
+while (start == "y") {
+round <- count + 1
+cat(paste("\n", "Round", round, "\n"))
+
+## Play
+
+```
+flush.console()
+hand<- c("R","P","S")
+player <- toupper(readline("Select your item ✊R, 🖐P, ✌️S : "))
+bot <- sample(hand,1)
+
+```
+
+## Result
+
+```
+print(paste("You: ", player))
+print(paste("Opponent: ", bot))
+
+```
+
+## Player wins
+
+```
+if (
+   (player == "R" & bot == "S") |
+   (player == "P" & bot == "R") |
+   (player == "S" & bot == "P")){
+
+    player_score <- player_score + 1
+
+    print(paste("Your score: ", player_score))
+    print(paste("The opponent's score:", bot_score))
+    cat("Result: You Win! 👍","\\n")
+
+```
+
+## Bot wins
+
+```
+}else if (
+    (bot == "R" & player == "S") |
+    (bot == "P" & player == "R") |
+    (bot == "S" & player == "P")){
+
+    bot_score <- bot_score + 1
+
+    print(paste("Your score: ", player_score))
+    print(paste("The opponent's score: ", bot_score))
+    cat("Result: You lose 😭","\\n")
+
+```
+
+## Equal
+
+```
+}else if (player == bot){
+
+    player_score <- player_score + 0
+    bot_score <- bot_score + 0
+
+    print(paste("Your score: ", player_score))
+    print(paste("The opponent's score: ", bot_score))
+    cat("Result: Draw 🤝","\\n")
+
+}else {cat ("Result: Invalid! Let's try again","\\n")}
+
+```
+
+## Stop the game
+
+count = count + 1
+
+```
+if(round == 5){
+cat("\\n", "GAME OVER", "\\n")
+break
+}
+
+```
+
+}
+
+## Total score
+
+```
+cat("Your score: ", player_score, " -VS- The opponent's score: ", bot_score)
+
+if(player_score > bot_score) {
+    cat("\\n", "Congratulations!...You are the winner👏👏👏")
+}else if (player_score < bot_score){
+    cat("\\n", "You are a loser 😔")
+}else {cat("\\n", "Match tied!..Nice Job 🙌")}
+
+```
+
+### **Result**
+
+```
+What is your name : gg
+Hi! gg Welcome to Rock-Paper-Scissor game
+
+RULES TO PLAY:
+press R for ✊
+press P for 🖐
+press S for ✌️
+
+HOW TO WIN THIS GAME!
+```
+
+| Player1 | Player2 | Scores |
+| --- | --- | --- |
+| <chr> | <chr> | <dbl> |
+| P 🖐 | R ✊ | 1 |
+| S ✌️ | P 🖐 | 1 |
+| R ✊ | S ✌️ | 1 |
+
+```
+Are you ready? [y/n]: y
+
+```
+
+'Ready! 3 2 1'
+Round 1
+Select your item ✊R, 🖐P, ✌️S : s
+[1] "You:  S"
+[1] "Opponent:  R"
+[1] "Your score:  0"
+[1] "The opponent's score:  1"
+Result: You lose 😭
+
+ Round 2
+Select your item ✊R, 🖐P, ✌️S : s
+[1] "You:  S"
+[1] "Opponent:  P"
+[1] "Your score:  1"
+[1] "The opponent's score: 1"
+Result: You Win! 👍
+
+ Round 3
+Select your item ✊R, 🖐P, ✌️S : s
+[1] "You:  S"
+[1] "Opponent:  S"
+[1] "Your score:  1"
+[1] "The opponent's score:  1"
+Result: Draw 🤝
+
+ Round 4
+Select your item ✊R, 🖐P, ✌️S : s
+[1] "You:  S"
+[1] "Opponent:  R"
+[1] "Your score:  1"
+[1] "The opponent's score:  2"
+Result: You lose 😭
+
+ Round 5
+Select your item ✊R, 🖐P, ✌️S : s
+[1] "You:  S"
+[1] "Opponent:  S"
+[1] "Your score:  1"
+[1] "The opponent's score:  2"
+Result: Draw 🤝
+
+ GAME OVER
+Your score:  1  -VS- The opponent's score:  2
+ You are a loser 😔
